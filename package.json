@@ -1,0 +1,23 @@
+{
+  "name": "creditcard-checkerjs",
+  "version": "1.0.0",
+  "description": "Find out the brand from the credit card number, and verify the check digit.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katsube/creditcard-checkerjs.git"
+  },
+  "keywords": [
+    "creditcard",
+    "checkdigit"
+  ],
+  "author": "M.Katsube",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/katsube/creditcard-checkerjs/issues"
+  },
+  "homepage": "https://github.com/katsube/creditcard-checkerjs#readme"
+}
