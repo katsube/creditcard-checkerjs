@@ -36,5 +36,5 @@ function verify(number){
 }
 
 module.exports = {
-  validate
+  verify
 }
