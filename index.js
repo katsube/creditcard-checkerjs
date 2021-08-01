@@ -11,7 +11,7 @@ const checksum = require('./src/checksum')
 const cardType = require('./src/cardtype')
 
 module.exports = {
-  validate: number => checksum.validate(number),
+  verify: number => checksum.verify(number),
   cardtype: number => cardType.checkPrefix(number),
   type: cardType.list
 }

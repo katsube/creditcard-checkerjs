@@ -6,7 +6,7 @@ const creditcard = require('creditcard-checkerjs')
 const number = '4111111111111111'
 
 // CheckDigit
-if( creditcard.validate(number) ){
+if( creditcard.verify(number) ){
   console.log('valid')
 }
 else{

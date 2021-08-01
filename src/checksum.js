@@ -8,12 +8,18 @@
  */
 'use strict';
 
-function validate(number){
+/**
+ * Verify the checksum of a credit card number
+ *
+ * @param {string} number - credit card number '4111111111111111'
+ * @returns {boolean}
+ */
+function verify(number){
   const temp = (typeof number === 'string')? number:String(number)
   const n = temp
-              .split('')              // 1文字ずつ分割し配列に
-              .map( a => Number(a) )  // 配列の各要素を文字列型→数値型に変換
-              .reverse()              // 配列を逆順にする
+              .split('')
+              .map( a => Number(a) )
+              .reverse()
   let total = 0;
 
   for(let i=0; i<n.length; i++){
