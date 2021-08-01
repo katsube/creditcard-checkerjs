@@ -7,11 +7,11 @@
  */
 'use strict';
 
-const checkdigit = require('./src/checkdigit')
+const checksum = require('./src/checksum')
 const cardType = require('./src/cardtype')
 
 module.exports = {
-  validate: number => checkdigit.validate(number),
+  validate: number => checksum.validate(number),
   cardtype: number => cardType.checkPrefix(number),
   type: cardType.list
 }
