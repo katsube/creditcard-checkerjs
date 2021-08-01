@@ -11,7 +11,7 @@
 //---------------------------------------------
 // define
 //---------------------------------------------
-const list = {
+const TYPE = {
   VISA:   1,
   MASTER: 2,
   JCB:    3,
@@ -34,29 +34,29 @@ const isAmex   = n => n.match(/^3[47]/)
 const isDiners = n => between(n.substr(0,6), 300000, 303574) || n.substr(0,4) === '3095' || n.match(/^3[689]/)
 
 /**
- * Check the card brand.
+ * Detect the card brand.
  *
  * @param {string} n - credit card number
  * @returns
  */
 function brand(n){
   if( isVisa(n) ){
-    return(list.VISA)
+    return(TYPE.VISA)
   }
   else if( isMaster(n) ){
-    return(list.MASTER)
+    return(TYPE.MASTER)
   }
   else if( isJCB(n) ){
-    return(list.JCB)
+    return(TYPE.JCB)
   }
   else if( isAmex(n) ){
-    return(list.AMEX)
+    return(TYPE.AMEX)
   }
   else if( isDiners(n) ){
-    return(list.DINERS)
+    return(TYPE.DINERS)
   }
 
-  return(list.UNKNOWN)
+  return(TYPE.UNKNOWN)
 }
 
 
@@ -64,7 +64,7 @@ function brand(n){
 // exports
 //---------------------------------------------
 module.exports = {
-  list,
+  TYPE,
   brand,
 
   isVisa,

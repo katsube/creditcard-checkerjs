@@ -13,5 +13,5 @@ const cardType = require('./src/cardtype')
 module.exports = {
   verify: number => checksum.verify(number),
   cardtype: number => cardType.brand(number),
-  type: cardType.list
+  type: cardType.TYPE
 }
