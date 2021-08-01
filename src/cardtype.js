@@ -1,6 +1,6 @@
 /**
  * CreditCard-Checker.js
- *    Card Type
+ *    Detect the international brand of credit card number.
  *
  * @version 1.0.0
  * @author M.Katsube <katsubemakito@gmail.com>
@@ -8,6 +8,9 @@
  */
 'use strict';
 
+//---------------------------------------------
+// define
+//---------------------------------------------
 const list = {
   VISA:   1,
   MASTER: 2,
@@ -17,7 +20,26 @@ const list = {
   UNKNOWN: -1
 }
 
-function checkPrefix(n){
+//---------------------------------------------
+// functions
+//---------------------------------------------
+// Utilities
+const between = (value, min, max) => ((min <= Number(value)) && (Number(value) <= max))
+
+// Card Brand check
+const isVisa   = n => n.substr(0,1) === '4'
+const isMaster = n => n.match(/^5[1-5]/) || between(n.substr(0,6), 222100, 272099)
+const isJCB    = n => between(n.substr(0,4), 3528, 3589)
+const isAmex   = n => n.match(/^3[47]/)
+const isDiners = n => between(n.substr(0,6), 300000, 303574) || n.substr(0,4) === '3095' || n.match(/^3[689]/)
+
+/**
+ * Check the card brand.
+ *
+ * @param {string} n - credit card number
+ * @returns
+ */
+function brand(n){
   if( isVisa(n) ){
     return(list.VISA)
   }
@@ -37,47 +59,17 @@ function checkPrefix(n){
   return(list.UNKNOWN)
 }
 
-function isVisa(n){
-  return(n.substr(0,1) === '4')
-}
 
-function isMaster(n){
-  if( n.match(/^5[1-5]/) ){
-    return(true)
-  }
-  // since 2016
-  if( n.length >= 6 && n.match(/^2[2-7]/) ){
-    const prefix = n.substr(0,6)
-    const number = Number(prefix)
-    if( (222100 <= number) && (number <= 272099) ){
-      return(true)
-    }
-  }
-  return(false)
-}
-
-function isJCB(n){
-  if( (n.length >= 4) && (n.match(/^35/)) ){
-    const prefix = n.substr(0,4)
-    const number = Number(prefix)
-    if( (3528 <= number) && (number <= 3589) ){
-      return(true)
-    }
-  }
-  return(false)
-}
-
-function isAmex(n){
-  return( n.match(/^3[47]/) )
-}
-
-function isDiners(n){
-  if( n.substr(0,) ||   n.match(/^3[689]/) ){
-  }
-}
-
-
+//---------------------------------------------
+// exports
+//---------------------------------------------
 module.exports = {
   list,
-  checkPrefix
+  brand,
+
+  isVisa,
+  isMaster,
+  isJCB,
+  isAmex,
+  isDiners
 }

@@ -35,6 +35,9 @@ function verify(number){
   return( total % 10 === 0 )
 }
 
+//---------------------------------------------
+// exports
+//---------------------------------------------
 module.exports = {
   verify
 }
