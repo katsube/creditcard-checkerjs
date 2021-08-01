@@ -12,7 +12,12 @@
   },
   "keywords": [
     "creditcard",
-    "checkdigit"
+    "checksum",
+    "VISA",
+    "MasterCard",
+    "JCB",
+    "AmericanExpress", "AMEX",
+    "DinersClub"
   ],
   "author": "M.Katsube",
   "license": "MIT",
