@@ -1,7 +1,7 @@
 {
   "name": "creditcard-checkerjs",
   "version": "1.0.0",
-  "description": "Find out the brand from the credit card number, and verify the check digit.",
+  "description": "verifies the checksum of credit card numbers and detects international brands from credit card numbers.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
