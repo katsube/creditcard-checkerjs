@@ -12,11 +12,11 @@
 // define
 //---------------------------------------------
 const TYPE = {
-  VISA:   1,
-  MASTER: 2,
-  JCB:    3,
-  AMEX:   4,
-  DINERS: 5,
+  VISA:   'VISA',
+  MASTER: 'MASTER',
+  JCB:    'JCB',
+  AMEX:   'AMEX',
+  DINERS: 'DINERS',
   UNKNOWN: -1
 }
 
