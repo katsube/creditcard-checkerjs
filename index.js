@@ -18,6 +18,7 @@ const cardSpec = require('./src/cardspec')
 // Global variables
 //---------------------------------------------
 const ERROR = {
+  code: null,
   message: ''
 }
 
@@ -30,13 +31,15 @@ const ERROR = {
  * @param {string} number - Card number '4111111111111111'
  * @return {boolean}
  */
-function validate(number) {
+function check(number) {
   const brand = cardType.brand(number)
   if( brand === cardType.TYPE.UNKNOWN ){
+    ERROR.code = 'ER110001'
     ERROR.message = 'Unknown card type'
     return(false)
   }
   if( ! checksum.verify(number) ){
+    ERROR.code = 'ER110002'
     ERROR.message = 'Invalid checksum'
     return(false)
   }
@@ -44,6 +47,7 @@ function validate(number) {
   const checklen = cardSpec.getLength(brand)
                             .some(len => len === number.length)
   if( ! checklen ){
+    ERROR.code = 'ER110003'
     ERROR.message = `Invalid length`
     return(false)
   }
@@ -52,21 +56,22 @@ function validate(number) {
 }
 
 /**
- * return last errr message
+ * return last errr
  *
- * @return {string}
+ * @returns {object}
  */
-function getErrorMessage(){
-  return(ERROR.message)
+function getError(){
+  return( ERROR )
 }
+
 
 //---------------------------------------------
 // exports
 //---------------------------------------------
 module.exports = {
-  validate,
+  check,
   verify: number => checksum.verify(number),
   cardtype: number => cardType.brand(number),
-  getErrorMessage,
+  getError,
   type: cardType.TYPE
 }
