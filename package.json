@@ -1,6 +1,6 @@
 {
   "name": "creditcard-checkerjs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "verifies the checksum of credit card numbers and detects international brands from credit card numbers.",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,8 @@
     "VISA",
     "MasterCard",
     "JCB",
-    "AmericanExpress", "AMEX",
+    "AmericanExpress",
+    "AMEX",
     "DinersClub"
   ],
   "author": "M.Katsube",
