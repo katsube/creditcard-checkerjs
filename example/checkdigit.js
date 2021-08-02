@@ -1,7 +1,7 @@
 const creditcard = require('../index')
 const number = '4111111111111111'
 
-if( creditcard.validate(number) ){
+if( creditcard.verify(number) ){
   console.log('valid')
 }
 else{
