@@ -1,6 +1,6 @@
 {
   "name": "creditcard-checkerjs",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "verifies the checksum of credit card numbers and detects international brands from credit card numbers.",
   "main": "index.js",
   "scripts": {
