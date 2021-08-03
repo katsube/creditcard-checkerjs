@@ -1,0 +1,1 @@
+window.creditcard = require('./index')

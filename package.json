@@ -1,10 +1,11 @@
 {
   "name": "creditcard-checkerjs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "verifies the checksum of credit card numbers and detects international brands from credit card numbers.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-web": "npx browserify browser.js -o dist/creditcard-checker.js; npx uglifyjs --compress --mangle -- dist/creditcard-checker.js > dist/creditcard-checker.min.js"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,8 @@
     "VISA",
     "MasterCard",
     "JCB",
-    "AmericanExpress", "AMEX",
+    "AmericanExpress",
+    "AMEX",
     "DinersClub"
   ],
   "author": "M.Katsube",
@@ -24,5 +26,9 @@
   "bugs": {
     "url": "https://github.com/katsube/creditcard-checkerjs/issues"
   },
-  "homepage": "https://github.com/katsube/creditcard-checkerjs#readme"
+  "homepage": "https://github.com/katsube/creditcard-checkerjs#readme",
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "uglify-js": "^3.14.1"
+  }
 }

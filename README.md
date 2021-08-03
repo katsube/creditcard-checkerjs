@@ -14,6 +14,7 @@ Currently, the following international brands are supported.
 $ npm install creditcard-checkerjs
 ```
 ## Example
+### Node.js
 ```javascript
 const creditcard = require('creditcard-checkerjs')
 const number = '4111111111111111'
@@ -64,6 +65,20 @@ switch( type ){
       console.log('Unknown');
       break;
 }
+```
+### Web Browser
+```html
+<script src="dist/creditcard-checker.min.js"></script>
+<script>
+const number = '4111111111111111'
+
+if( creditcard.check(number) ){
+  console.log('correct!')
+}
+else{
+  console.log(`incorrect! ${creditcard.getError().message}`)
+}
+</script>
 ```
 
 ## Licence

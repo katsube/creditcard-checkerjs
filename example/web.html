@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>creditcard-checker.js example</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  <style>
+    #brand{ font-size: 20pt; }
+    #number{ width:200px; padding:5px; }
+    #btn{ width:80px; padding:5px; }
+  </style>
+</html>
+<body>
+
+<form>
+  <span id="brand"></span>
+  <input type="text" id="number" placeholder="XXXX-XXXX-XXXX-XXXX">
+  <button type="button" id="btn">Check</button>
+  <div id="result"></div>
+</form>
+
+<script src="../dist/creditcard-checker.js"></script>
+<script>
+//---------------------------------------
+// Check the credit card number
+//---------------------------------------
+document.querySelector('#btn').addEventListener('click', ()=>{
+  const number = document.querySelector('#number').value
+  const result = document.querySelector('#result')
+
+  if( creditcard.check(number) ){
+    result.textContent = 'Valid!'
+  }
+  else{
+    result.textContent = 'Invalid...'
+  }
+})
+
+//---------------------------------------
+// Detect card brand
+//---------------------------------------
+document.querySelector('#number').addEventListener('keydown', (e)=>{
+  const number = document.querySelector('#number').value
+  const brand  = document.querySelector('#brand')
+
+  switch( creditcard.cardtype(number) ){
+    case creditcard.type.VISA:
+      brand.innerHTML = '<i class="fab fa-cc-visa"></i>'
+      break
+    case creditcard.type.MASTER:
+      brand.innerHTML = '<i class="fab fa-cc-mastercard"></i>'
+      break
+    case creditcard.type.JCB:
+      brand.innerHTML = '<i class="fab fa-cc-jcb"></i>'
+      break
+    case creditcard.type.AMEX:
+      brand.innerHTML = '<i class="fab fa-cc-amex"></i>'
+      break
+    case creditcard.type.DINERS:
+      brand.innerHTML = '<i class="fab fa-cc-diners-club"></i>'
+      break
+
+    case creditcard.type.UNKNOWN:
+    default:
+      brand.innerHTML = ''
+      break
+  }
+})
+
+
+//---------------------------------------
+// Prevent Submit
+//---------------------------------------
+document.querySelector('form').addEventListener('submit', (e)=>{
+  e.preventDefault()
+})
+</script>
+</body>
+</html>
+
+
